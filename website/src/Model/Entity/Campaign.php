@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $image
  * @property string $body
  * @property bool $approved
- * @property \Cake\I18n\Time $creation
+ * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $expiration
  */
 class Campaign extends Entity

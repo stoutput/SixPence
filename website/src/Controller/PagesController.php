@@ -67,7 +67,7 @@ class PagesController extends AppController
 	//	$this->Auth->Allow('register');
 	//}
 	
-		//Nate Kaldor
+    //Nate Kaldor
 	//4-23
 	//Before Filter Method
 	//This allows users who are not authenticated to be able to navigate to the registration page

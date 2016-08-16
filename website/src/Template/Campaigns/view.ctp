@@ -1,58 +1,29 @@
 <!-- NATE KALDOR MADE CHANGES HERE -->
+<div class='container'>
+  <?php if($uid == $campaign->founder_id) : ?>
+    <div class="btn-group btn-group-justified">
+      <?= $this->Html->link(__('Edit Campaign'), ['action' => 'edit', $campaign->id], ['class' => 'btn btn-primary']) ?>
+      <?= $this->Form->postLink(__('Delete Campaign'), ['action' => 'delete', $campaign->id], ['confirm' => __('Are you sure you want to delete # {0}?', $campaign->title), 'class' => 'btn btn-info']) ?>
+    </div>
+    <br>
+  <?php endif; ?>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Campaign'), ['action' => 'edit', $campaign->title]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Campaign'), ['action' => 'delete', $campaign->title], ['confirm' => __('Are you sure you want to delete # {0}?', $campaign->title)]) ?> </li>
-        <li><?= $this->Html->link(__('List Campaigns'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Campaign'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-
-<div class="campaigns view large-9 medium-8 columns content">
-    <h3><?= h($campaign->title) ?></h3>
-    <table class="vertical-table">
-        <!--<tr>
-            <th><?= __('User') ?></th>
-            <td><?= $campaign->has('user') ? $this->Html->link($campaign->user->id, ['controller' => 'Users', 'action' => 'view', $campaign->user->id]) : '' ?></td>
-        </tr>-->
-        <tr>
-            <th><?= __('Title') ?></th>
-            <td><?= h($campaign->title) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Image') ?></th>
-            <td><?= h($campaign->image) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Body') ?></th>
-            <td><?= h($campaign->body) ?></td>
-        </tr>
-        <!--<tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($campaign->id) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Creation') ?></th>
-            <td><?= h($campaign->creation) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Expiration') ?></th>
-            <td><?= h($campaign->expiration) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Approved') ?></th>
-            <td><?= $campaign->approved ? __('Yes') : __('No'); ?></td>
-        </tr>   -->
-    </table>
+  <div class="campaigns view large-9 medium-8 columns content">
+    <center>
+      <h2 class="campaign-text"><?= h($campaign->title) ?></h2>
+      <div class="campaign-image">
+        <img id="result_img" src="<?php echo $campaign->image; ?>" width="100%"/>
+      </div>
+      <br>
+      <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">Donate</a>
+        <a href="#" class="btn btn-info">Subscribe</a>
+      </div>
+      <br>
+      <div class="progress progress-striped">
+        <div class="progress-bar" role="progressbar" aria-valuenow=<?= $campaign->current_amount ?> aria-valuemin="0" aria-valuemax=<?= $campaign->goal_amount ?> style="width: <?= $campaign->goal_amount != 0 ? $campaign->current_amount/$campaign->goal_amount*100 : 0 ?>%">$<?= $campaign->current_amount ?> Raised</div>
+      </div>
+      <h4 class="campaign-text">Goal Progress</h4>
+  	  <br>
+      <p class="campaign-text"><?= h($campaign->body) ?></p>
 </div>
-
-
-<!-- Julia Foote -->
-<!--<?php if($loggedIn && $user->id == $campaign->founder_id) : ?>-->
-<button><?= $this->Html->link(__('Edit'), ['action' => 'edit', $campaign->id]) ?></button>
-<button><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $campaign->id], ['confirm' => __('Are you sure you want to delete # {0}?', $campaign->title)]) ?></button>
-<!--<?php endif; ?>-->

@@ -33,6 +33,11 @@ class CampaignsTable extends Table
             'foreignKey' => 'founder_id',
             'joinType' => 'INNER'
         ]);
+		
+		//Nate Kaldor
+		//5-15-16
+		//This adds the time stamp to 'Created' and 'Modified' in the Campaigns table in the database.
+		$this->addBehavior('Timestamp');
     }
 
     /**
@@ -61,11 +66,13 @@ class CampaignsTable extends Table
         $validator
             ->boolean('approved')
             ->allowEmpty('approved');
-
-        $validator
-            ->date('creation')
-            ->requirePresence('creation', 'create')
-            ->notEmpty('creation');
+		
+		//Nate Kaldor removed this - renamed it 'created' date to allow CakePHP to handle it.
+		//5-15-16
+        //$validator
+         // ->date('creation')
+         // ->requirePresence('creation', 'create')
+         // ->notEmpty('creation');
 
         $validator
             ->date('expiration')

@@ -12,31 +12,20 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-
-<html>
-<head>
-			<h1>Featured Campaigns</h1>
-			
-<ul>
-<?php
-	echo '<li>Image</li>
-          <li><a target="_blank" href="http://...">Title</a></li>
-          <li>Location</li>';
-?>
-                
-</ul>
-</head>
-
-
-<div>
-
-                <h2 class="">Campaign Names</h2>
-                <p>
-                    <p>Campaign 1: <?=CampaignName ?></p>
-					<p>Campaign 2: <?=CampaignName ?></p>
-					<p>Campaign 3: <?=CampaignName ?></p>
-                </p>
+<div class="campaigns form large-9 medium-8 columns content">
+    <?= $this->Form->create($campaign) ?>
+    <fieldset>
+        <legend><?= __('Edit Campaign') ?></legend>
+        <?php
+            echo $this->Form->input('founder_id', ['options' => $users]);
+            echo $this->Form->input('title');
+            echo $this->Form->input('image');
+            echo $this->Form->input('body');
+            echo $this->Form->input('approved');
+            echo $this->Form->input('creation');
+            echo $this->Form->input('expiration');
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
 </div>
-
-</body>
-</html>

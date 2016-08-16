@@ -34,16 +34,26 @@ class User extends Entity
         'id' => false,
     ];
 	
+	
+	////DEPRECATED 6-3-16 
+	////WAS DOUBLE HASHING WITH BURZUM
 	//Nate Kaldor 4/21/16
 	//This function hashes user passwords on account creation.
 	//As of writing this, it's bcrypt version 2y and 10 iterations.
 	//Tested to be working on 4/21/16
-	protected function _setPassword($password)
+	/*protected function _setPassword($password)
 	{
 		if (strlen($password) > 0) {
 			return (new DefaultPasswordHasher)->hash($password);
 		}
-	}
+	}*/
+	
+	public function beforeSave($options = array()) {
+    if (isset($this->data[$this->alias]['new_password'])) {
+       $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password1']);
+    }
+    return true;
+}
 
     /**
      * Fields that are excluded from JSON an array versions of the entity.

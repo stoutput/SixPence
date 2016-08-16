@@ -97,3 +97,16 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 Plugin::routes();
+
+//Nate Kaldor
+//5-7-16
+//Adds a prefix 'admin' to create a parallel admin backend
+//Code was baked after this
+Router::prefix('admin', function ($routes){
+	$routes->fallbacks('DashedRoute');
+});
+
+//Ben Stout
+//5-16-16
+//Added route to alpha.ctp
+Router::connect('/alpha', array('controller' => 'pages', 'action' => 'display', 'alpha'));

@@ -1,5 +1,4 @@
 
-
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -23,9 +22,12 @@
             <th><?= __('Title') ?></th>
             <td><?= h($campaign->title) ?></td>
         </tr>
+
         <tr>
+<!-- Julia Foote- images -->
             <th><?= __('Image') ?></th>
-            <td><?= h($campaign->image) ?></td>
+
+		<td><img id="result_img" src="<?php echo ($campaign->image); ?>" width="100px" height="100px"/></td>
         </tr>
         <tr>
             <th><?= __('Body') ?></th>

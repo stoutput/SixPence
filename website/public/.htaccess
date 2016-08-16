@@ -13,7 +13,7 @@
 
     #Remove www
     RewriteCond %{HTTP_HOST} ^www.sixpenceapp.com$ [NC]
-    RewriteRule ^(.*)$ http://sixpenceapp.com/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://sixpenceapp.com/$1 [R=301,L]
 
     #Remove .html extension
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/

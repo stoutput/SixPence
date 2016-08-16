@@ -1,0 +1,17 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+</nav>
+<div class="users form large-9 medium-8 columns content">
+    <?= $this->Form->create($user) ?>
+    <fieldset>
+        <legend><?= __('Edit Account') ?></legend>
+        <?php
+            echo $this->Form->input('email');
+            echo $this->Form->input('password');
+			echo $this->Form->input('confirm_pasword');
+            echo $this->Form->input('firstname');
+            echo $this->Form->input('lastname');
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
+</div>

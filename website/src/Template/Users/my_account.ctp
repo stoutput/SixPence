@@ -1,22 +1,24 @@
-
-    
+<!-- Ben Stout 6-7-2016 !-->
 </nav>
-<div class="users form large-9 medium-8 columns content">
-    
+<div class='container text-center'>
+
     <fieldset>
         <legend><?= __('My Account') ?></legend>
-        <?php
-			
-			echo nl2br("Email Address:" . $user->email . "\n"); 
-			echo nl2br("First Name: ".$user->firstname . "\n");
-			echo nl2br("Last Name: " . $user->lastname . "\n");
-			
-            /*<!--echo $this->Form->input('email');
-            echo $this->Form->input('password');
-            echo $this->Form->input('firstname');
-            echo $this->Form->input('lastname');-->*/
-        ?>
+
+        <div align=left>
+          <h4>Email Address</h4>
+          <p><?=$user->email?></p>
+          <h4>First Name</h4>
+          <p><?=$user->firstname?></p>
+          <h4>Last Name</h4>
+          <p><?=$user->lastname?></p>
+          <br>
+          <!--echo nl2br("Subscribed Campaign: ", $user->sub_id . "\n");-->
+          <div class="btn-group">
+						<?=$this->Html->link('Edit Account', ['action' => 'editAccount'], ['class' => 'btn btn-primary']) ?>
+						<?=$this->Html->link(__d('burzum/user_tools', 'Change Password'), ['action' => 'change_password'], ['class' => 'btn btn-info']) ?>
+          </div>
+        </div>
+
     </fieldset>
-    <!--<?= $this->Form->button(__('Submit')) ?>-->
-    <?= $this->Form->end() ?>
 </div>

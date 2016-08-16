@@ -1,19 +1,21 @@
  <!-- NATE KALDOR AUTHOR OF THIS PAGE -->
- 
- <h1>&nbsp Login</h1>
-<!--
-<?= $this->Form->input('email'); ?>
-<?= $this->Form->input('password'); ?>
-<?= $this->Form->button('Login'); ?>
-<?= $this->Form->end(); ?>;-->
-
-<?= $this->Form->create(); ?>
-    <fieldset>
-     <!-- <legend><?= __('Login') ?></legend> -->
-        <?php
-            echo $this->Form->input('email');
-            echo $this->Form->input('password');
-        ?>
-    </fieldset>
-	&nbsp &nbsp <?=  $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class='container text-center'>
+   <h1>Login</h1>
+  <?php
+    echo $this->Form->create(NULL, [
+      'horizontal' => true,
+      'columns' => [ // Total is 12, default is 2 / 10 / 0
+          'label' => 3,
+          'input' => 9,
+          'error' => 0
+      ],
+      'style' => 'display:inline-block'
+    ]);
+    echo $this->Form->input('email', ['type' => 'email']);
+    echo $this->Form->input('password', ['type' => 'password']);
+    echo $this->Form->horizontal = false;
+    echo $this->Form->input('remember_me', ['type' => 'checkbox']) ;
+    echo $this->Form->submit(__('Log In'));
+    echo $this->Form->end()
+  ?>
+</div>

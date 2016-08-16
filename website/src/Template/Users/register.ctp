@@ -1,31 +1,25 @@
 <!-- Nate Kaldor is the author of this page -->
-
-<h1>&nbsp Register</h1>
-<!-- <?= $this->Form->create($user) ?>
-<?= $this->Form->input('Email Address'); ?>
-<?= $this->Form->input('First Name'); ?>
-<?= $this->Form->input('Last Name'); ?>
-<?= $this->Form->input('Password'); ?>
-<?= $this->Form->button('Register'); ?>
-<?= $this->Form->end(); ?>;-->
-
-
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <!-- <legend><?= __('Register') ?></legend> -->
-		<?php
-            echo $this->Form->input('email');
-            echo $this->Form->input('firstname');
-            echo $this->Form->input('lastname');
-			echo $this->Form->input('password');
-			echo $this->Form->label('confirm_password', 'Confirm Password');
-			echo $this->Form->password('confirm_password');
-			//echo $this->Form->label('User/confirmpassword', 'Confirm Password');
-			//echo $this->Form->password('User/confirmpassword', array('size' => '30'));
-        ?>
-		<!--<?php echo $this->Form->label('User/confirmpassword', 'Confirm Password');?>
-		<?php echo $this->Form->password('User/confirmpassword', array('size' => '30'));?>
-		<?php echo $this->Form->error('User/checkpassword', 'Please Be Sure Passwords Match.');?>-->
-    </fieldset>
-    &nbsp &nbsp <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<!-- Ben Stout made changes to use bootstrap and make things pretty -->
+<div class='container text-center'>
+  <h1>Register</h1>
+  <?php
+    echo $this->Form->create($user,
+      [
+        'horizontal' => true,
+        'columns' => [ // Total is 12, default is 2 / 10 / 0
+            'label' => 3,
+            'input' => 9,
+            'error' => 0
+        ],
+        'style' => 'display:inline-block'
+      ]);
+    echo $this->Form->input('email', ['type' => 'email']);
+    echo $this->Form->input('firstname', ['type' => 'text']);
+    echo $this->Form->input('lastname', ['type' => 'text']);
+		echo $this->Form->input('password', ['type' => 'password']);
+		echo $this->Form->input('confirm_password', ['type' => 'password']);
+    echo $this->Form->horizontal = false;
+    echo $this->Form->submit(__('Submit'));
+    echo $this->Form->end()
+    ?>
+</div>
